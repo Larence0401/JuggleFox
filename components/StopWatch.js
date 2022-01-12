@@ -4,8 +4,8 @@ import {Context} from '../store/context'
 
 const StopWatch = () => {
 
-    const {state} = useContext(Context)
-    const {isRunning,skipped} = state
+    const {state,dispatch} = useContext(Context)
+    const {isRunning,skipped,gameCompleted} = state
     const [time,setTime] = useState(0)
     let tip = isRunning ? time + (parseInt(skipped) * 300) : time// tip = time including penalties / for each skipped set there is a time penalty of 3 secons added to the time passed
 
@@ -17,13 +17,17 @@ const StopWatch = () => {
 
     let timePassed = `${minutes}:${seconds}:${tenMilliSecs}`
 
+    useEffect(() => dispatch({type: 'saveTime', payload: timePassed}), [gameCompleted])
+
     useEffect(() =>  {
         let interval = null
-        if(isRunning) {
+        if(isRunning && !gameCompleted) {
             interval = setInterval(() => {
                     setTime(prevTime => prevTime + 1)
             },10)
-            }    
+            }  else if(!isRunning && gameCompleted){
+                    setTime(prevTime => prevTime)
+            }  
             else {
                 clearInterval(interval)
                 setTime(0)

@@ -9,9 +9,9 @@ import StopWatch from "../components/StopWatch";
 import Hooks from "../components/Hooks";
 import Display from "../components/Display";
 import Highscore from "../components/Highscore";
-import {useReducer} from 'react'
 import {ContextProvider} from "../store/context";
 import Calculator from "../components/Calculator";
+import Modal from "../components/Modal";
 
 
 export default function Home() {
@@ -32,6 +32,7 @@ export default function Home() {
         </style>
       </head>
       <div id="container" className="flex bg-blue-300 w-full h-screen">
+        <Modal/>
         <div
           id="container_left"
           className="w-1/2 h-full flex flex-col space-between"

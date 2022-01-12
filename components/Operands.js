@@ -9,21 +9,22 @@ const createRandomArray = () => {
         return shuffledArray
 }
 
-const shuffledArray = createRandomArray()
+
+let shuffledArray = createRandomArray()
 
 
 const Operands = () => {
 
         const {state,dispatch} = useContext(Context)
-        const {isRunning,validFields} = state   
-        useEffect(() => {
-                dispatch({type: 'setRandomArray',payload: shuffledArray})
-           }, [isRunning])    
+        const {isRunning,validFields,checkedHooks,ArrOfValues,skipped} = state   
+        useEffect(() => {        
+                dispatch({type: 'setRandomArray',payload: createRandomArray()})
+           }, [isRunning,checkedHooks,skipped])    
         
-
+           let array = !isRunning ? shuffledArray : ArrOfValues.slice(0,16)
            
     return (  <div className='w-3/4 h-full grid grid-cols-4 rows-4 gap-4'>
-                        {shuffledArray.map((num,i) => <Operand num={num} i={i} disabled={validFields.indexOf(i) === -1}></Operand>)}
+                        {array.map((num,i) => <Operand num={num} i={i} disabled={validFields.indexOf(i) === -1}></Operand>)}
             </div>    
                 
     )

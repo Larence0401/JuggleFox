@@ -24,7 +24,7 @@ const Operands = () => {
            let array = !isRunning ? shuffledArray : ArrOfValues.slice(0,16)
            
     return (  <div className='w-3/4 h-full grid grid-cols-4 rows-4 gap-4'>
-                        {array.map((num,i) => <Operand num={num} i={i} disabled={validFields.indexOf(i) === -1}></Operand>)}
+                        {array.map((num,i) => <Operand key={i} num={num} i={i} disabled={validFields.indexOf(i) === -1}></Operand>)}
             </div>    
                 
     )

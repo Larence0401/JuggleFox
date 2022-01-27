@@ -141,6 +141,20 @@ const reducer = (state,action) => {
             loginForm: true
         }               
     }
+        case 'openModal': {
+            return {
+                ... state,
+                modalIsOpen: true
+            }
+        }
+        case 'closeModal': {
+            return {
+                ... state,
+                modalIsOpen: false,
+                loginForm: true
+            }
+        }
+
     }
 }
 
@@ -158,7 +172,9 @@ const initialState = {
     checkedHooks: 0,
     gameCompleted: false,
     finalTime: '',
-    loginForm: false
+    loginForm: false,
+    modalIsOpen: false,
+    registration: false
 }
     const [state, dispatch] = useReducer(reducer, initialState)
   return <Context.Provider value={{state,dispatch}}>{children}</Context.Provider>;

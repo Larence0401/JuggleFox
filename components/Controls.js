@@ -8,20 +8,6 @@ const Controls = () => {
 
  const {state,dispatch} = useContext(Context)
  const {isRunning} = state
- /*
- const populateArray = () => {
-    let array_of_zeros = new Array(16).fill("")
-    let array = array_of_zeros.map((el,i) => el = (i % 9) + 1)
-    const shuffledArray = array.sort((a, b) => 0.5 - Math.random())
-    return shuffledArray
- }
-
- const randomArray = populateArray()
-        
-
- useEffect(() => {   
-                        dispatch({type: 'setRandomArray', payload: randomArray},[isRunning])
-                                                            })*/
 
     const buttonClass = isRunning ? "bg-orange-400" : "bg-green-700"
     return (

@@ -16,7 +16,7 @@ const Hooks = () => {
         <div id="hooks" className="p-8 flex self-start row-start-1 col-start-1 col-span-3">
                 {hooks.map((el,i) =>    { 
                                         const hookColor = i + 1 <= checkedHooks ? "text-green-600" : "text-slate-800"
-                                        return (<span className={`text-8xl ${hookColor}`}>
+                                        return (<span key={i} className={`text-8xl ${hookColor}`}>
                                                         <i class="fas fa-check"></i>
                                                 </span>)
                                         })

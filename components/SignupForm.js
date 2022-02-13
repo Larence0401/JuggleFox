@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
 import FirebaseAuthService from "../FirebaseAuthService"
-import FirebaseFirestoreService from "../FirebaseFirestoreService";
 import {Context} from '../store/context'
 
 const SignupForm = () => {
@@ -39,10 +38,8 @@ const SignupForm = () => {
     }
   }
 
-
-
   return (
-    <div class="mb-2 mx-1 pt-8 bg-slate-200 flex flex-col justify-center pl-4 pb-4 border-b-2 border-slate-300 pr-4">
+    <div className="mb-2 mx-1 pt-8 bg-slate-200 flex flex-col justify-center pl-4 pb-4 border-b-2 border-slate-300 pr-4">
       <span className="text-red-500 italic mb-4">{error}</span>
       <form onSubmit={handleSubmit}>
       <label
@@ -75,7 +72,7 @@ const SignupForm = () => {
         ></input>
         <div className="mb-6">
           <label
-            class="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="password"
           >
             Password
@@ -89,7 +86,7 @@ const SignupForm = () => {
             onChange={e => setPassword(e.target.value)}
           ></input>
           <label
-            class="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="confirm-password"
           >
             Confirm Password
@@ -116,7 +113,7 @@ const SignupForm = () => {
         <hr></hr>
         <div className="flex justify-between items-center mt-3">
           <hr className="w-full bg-black"></hr>{" "}
-          <span class="p-2 text-gray-400 mb-1">OR</span>
+          <span className="p-2 text-gray-400 mb-1">OR</span>
           <hr className="w-full bg-black"></hr>
         </div>
       </form>

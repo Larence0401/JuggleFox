@@ -17,7 +17,7 @@ const Hooks = () => {
                 {hooks.map((el,i) =>    { 
                                         const hookColor = i + 1 <= checkedHooks ? "text-green-600" : "text-slate-800"
                                         return (<span key={i} className={`text-8xl ${hookColor}`}>
-                                                        <i class="fas fa-check"></i>
+                                                        <i className="fas fa-check"></i>
                                                 </span>)
                                         })
                 }

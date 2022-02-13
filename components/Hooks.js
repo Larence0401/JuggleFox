@@ -1,6 +1,7 @@
 import React, {useEffect } from 'react'
 import {useContext} from 'react'
 import {Context} from '../store/context'
+import CheckIcon from '@mui/icons-material/Check';
 
 const Hooks = () => {
 
@@ -17,7 +18,7 @@ const Hooks = () => {
                 {hooks.map((el,i) =>    { 
                                         const hookColor = i + 1 <= checkedHooks ? "text-green-600" : "text-slate-800"
                                         return (<span key={i} className={`text-8xl ${hookColor}`}>
-                                                        <i className="fas fa-check"></i>
+                                                        <CheckIcon sx={{ fontSize: 96}}/>
                                                 </span>)
                                         })
                 }

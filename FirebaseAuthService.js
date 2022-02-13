@@ -22,7 +22,7 @@ const sendPasswordResetMail = email => sendPasswordResetEmail(auth,email)
 
 const loginWithGoogle = () => {
     const provider = new GoogleAuthProvider()
-    return signInWithPopup(auth,provider)
+    signInWithPopup(auth,provider).then(res => console.log(res))
 }
 
 const subscribeToAuthChanges = handleAuthChange => onAuthStateChanged(auth, user => handleAuthChange(user))

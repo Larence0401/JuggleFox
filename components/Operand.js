@@ -17,7 +17,7 @@ const Operand = ({num,i}) => {
     
     const isClicked = clickedFields.includes(i)
 
-    const buttonColor = isClicked ? isLastField ? "bg-slate-600" : "bg-slate-400" : "bg-slate-200"
+    const buttonColor = isClicked ? isLastField ? "bg-slate-600" : "bg-slate-400" : "bg-slate-200 hover:bg-slate-300"
 
     const isDisabled = ((clickedFields.length > 0 && arrOfValidFields.indexOf(i) === -1) || (lastBtnIsOperand && calcStarted)) ? "disabled" : null
 
@@ -31,7 +31,7 @@ const Operand = ({num,i}) => {
    
    
     return (
-        <div className={`${buttonColor} ${isDisabled} ${textColor} ${border} box-border text-center align-middle pt-[10%] rounded-md text-8xl shadow-md`}
+        <div className={`${buttonColor} ${isDisabled} ${textColor} ${border} box-border text-center align-middle pt-[10%] rounded-md text-8xl shadow-md cursor-pointer`}
                     onClick={isRunning && (() => dispatch({type: operator, payload: fieldData}))} >
             {num}
         </div>

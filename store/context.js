@@ -17,7 +17,8 @@ const reducer = (state,action) => {
                 skipped: 0,
                 clickedFields: [],
                 checkedHooks: 0,
-                lastBtnIsOperand: false
+                lastBtnIsOperand: false,
+                gameCompleted: false
 
             }
         }
@@ -154,7 +155,63 @@ const reducer = (state,action) => {
                 loginForm: true
             }
         }
+        case 'createUser': {
+            return {
+                ... state,
+                username: action.payload,
+                isNewSignup: true
+            }
+        }
+        case 'updateSignupStateToFalse': {
+            return {
+                ... state,
+                isNewSignup: false
+            }
+        }
+        case 'setUsername' : {
+            return {
+                ... state,
+                username: action.payload
+        }
+    }
+    case 'setUserData' : {
+        return {
+            ... state,
+            userdata: action.payload
+    }
+}
+    case 'logoutUser' : {
+        return {
+            ... state,
+            userdata: [],
+            loginForm: false
+        }
+    }
 
+    case 'setLoginState' : {
+        return {
+            ... state,
+            loginForm: false
+        }
+    }
+    case 'topFiveResults' : {
+        return {
+            ... state,
+            topFiveResults: action.payload
+        }
+    }
+    case 'setHallOfFame' : {
+        return {
+            ... state,
+            hallOfFame: action.payload
+    }
+    }
+    case 'setPersonalHighscore' : {
+            return {
+                ... state,
+                personalHighscore: action.payload
+            }
+    } 
     }
 }
 
@@ -174,7 +231,12 @@ const initialState = {
     finalTime: '',
     loginForm: false,
     modalIsOpen: false,
-    registration: false
+    isNewSignup: false,
+    username: "",
+    userdata: [],
+    hallOfFame: [],
+    topFiveResults: [],
+    personalHighscore: ''
 }
     const [state, dispatch] = useReducer(reducer, initialState)
   return <Context.Provider value={{state,dispatch}}>{children}</Context.Provider>;

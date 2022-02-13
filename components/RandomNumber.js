@@ -12,7 +12,7 @@ useEffect(() =>   setRandNum(generateRandomNumber()),[isRunning,checkedHooks])
 useEffect(() =>   dispatch({type: 'resetAfterSolved', payload: randNum}),[randNum,checkedHooks])
 
     return (
-        <div id="num" className='w-full text-slate-900 text-9xl text-left bg-white row-start-2 row-span-1 col-start-1 col-span-3'>
+        <div id="num" className='w-1/3 rounded-xl shadow-inner text-slate-800 text-9xl text-center bg-white col-start-1 col-span-3'>
             {isRunning && randNum}
         </div>
     )

@@ -26,7 +26,8 @@ const StopWatch = () => {
                     setTime(prevTime => prevTime + 1)
             },10)
             }  else if(!isRunning && gameCompleted){
-                    setTime(prevTime => prevTime)
+                    //setTime(prevTime => prevTime)
+                    setTime(0)
             }  
             else {
                 clearInterval(interval)

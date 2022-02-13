@@ -11,15 +11,17 @@ const Modal = () => {
     const {gameCompleted,loginForm,modalIsOpen} = state  
     const [user, setUser] = useState(null)
     FirebaseAuthService.subscribeToAuthChanges(setUser)
+    console.log(modalIsOpen)
+    console.log(loginForm)
+    console.log(user)
 
     useEffect(() => gameCompleted ? dispatch({type: "openModal"}) : null,[gameCompleted])
     useEffect(() => user ? dispatch({type: "closeModal"}) : null,[user])
 
     return (  
-        
-        <>   {modalIsOpen /*&& !currentUser*/ ? <div className='fixed inset-0 bg-black opacity-80 z-48' onClick={() => dispatch({type: "closeModal"})}></div> : null}
-             {loginForm && modalIsOpen ? <Authentication/> : null}
-             {modalIsOpen && !loginForm && gameCompleted ? <WinningMessage/> : null}
+        <>   {modalIsOpen ? <div className='fixed inset-0 bg-black opacity-80 z-48' onClick={() => dispatch({type: "closeModal"})}></div> : null}
+             {modalIsOpen && loginForm && !user ? <Authentication/> : null}
+             {modalIsOpen && gameCompleted && (!loginForm || user) ? <WinningMessage/> : null} 
         </>
     )
 }

@@ -12,7 +12,7 @@ const Display = () => {
     useEffect(() =>  setValue(operand), [operand])
 
     return (
-        <div id="display" className=' h-1/4 p-8 bg-white text-9xl text-slate-700 text-right border-black border-4 rounded-xl border-slate-700 m-8'>
+        <div id="display" className='p-8 bg-white text-9xl text-slate-700 text-right border-black border-4 rounded-xl border-slate-700 m-8'>
             {!Number.isInteger(value) ? parseInt(value) : value}
         </div>
     )

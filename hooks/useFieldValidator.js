@@ -8,7 +8,6 @@ const useFieldValidator = (num,i) => {
     const lastField = clickedFields[clickedFields.length-1]
 
     let adjacentFields = [-3,1,-5,-4,4,5,-1,3]  
-    // lastfield % 4 === (0 || 3) ? rechts mod 3  modulus 2 oder 3 - links mod 0 modulus 0 oder 1 
     let arr1 = []
     if(lastField % 4 === 0) {
         arr1 = adjacentFields.slice(0,7)

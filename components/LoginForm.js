@@ -10,7 +10,7 @@ import {
 } from "firebase/auth";
 
 const LoginForm = () => {
-  const {state} = useContext(Context)
+  const {state,dispatch} = useContext(Context)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -24,6 +24,7 @@ const LoginForm = () => {
       await FirebaseAuthService.loginUser(email,password)
       setEmail("")
       setPassword("")
+      dispatch({type: 'setLoginState'})
     } catch(error) {
       alert(error.message)
     }

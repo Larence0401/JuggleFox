@@ -29,12 +29,11 @@ const SignupForm = () => {
       return
     }
     try {
-      dispatch({type: 'createUser', payload: username})
+      await dispatch({type: 'createUser', payload: username})
       await FirebaseAuthService.signupUser(email,password)
       setUsername("")
       setPassword("")
-      
-      
+           
     } catch(error) {
       alert(error.message)
     }

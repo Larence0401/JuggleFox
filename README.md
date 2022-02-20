@@ -1,32 +1,50 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Juggle Fox
+&nbsp;
+## Here you get to the [**LIVE APP**](https://juggle-fox.vercel.app//)
 
-First, run the development server:
+![](Animation.gif)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Description!
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This is a quick and simple math and reation game. On the lefthand side of the game field you have a calculator with 12 buttons which are randomly populated with 1-digit-numbers.
+You can add, subtract, multiply and divide those numbers as with a regular calculator. However, you can only click buttons adjacent to the one you have clicked before and you can only click a button once. Once you've computed the randomly generated number on the righthand side of the game field, one of the five check marks turns green. As soon as all five checkmarks are green, the game is over. Your goal is to complete the game in the least amount of time possible.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Why I built this app
+Developing this project helped me a lot with learning about global state management in a more complex application. It is in this app that I first implemented the useContext hook in connection with the useReducer hook for that purpose. I also learned to use Firebase Authentication and Firebase Firestore for user authentication and performing CRUD operations like storing, updating and retrieving game results.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Tech Stack
+- Javascript ES6
+- ReactJS
+- NextJS
+- Tailwind CSS
+- Firebase Authentication
+- Firebase Firestore
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Features
+- real-time updates of game results
+- user registration and login with email and password
+- social authentication with Google and Facebook
+- top 5 personal results get shown to logged in user
+- hall of fame displaying the top 15 players with their best time
+- personal record is displayed to logged in users
+- overall record is displayed
 
-## Learn More
+## How to install and run the project
 
-To learn more about Next.js, take a look at the following resources:
+1) Clone the project, running git **clone https://github.com/Larence0401/JuggleFox.git**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2) Install dependencies running **npm i** in your terminal
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## How to use the project
 
+Some ideas for additional feature you could add to the game:
+
+- add sound effects
+- build a 3D-version of the game
+- change the number of check marks
+- change the range 
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.

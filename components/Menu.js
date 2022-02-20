@@ -15,9 +15,6 @@ const Menu = () => {
   const userName = userdata[1] ? userdata[1]['username'] : null
   const displayName = user ? user.providerData[0].displayName : null
   const displayedName = displayName && displayName.length > 0 ? displayName : userName
-  
-  console.log(username)
-  console.log(userName)
 
   FirebaseAuthService.subscribeToAuthChanges(setUser);
 

@@ -13,7 +13,7 @@ import {
 const Highscore = () => {
     const colRef = useFirestore()
     const { state,dispatch } = useContext(Context);
-    const { gameCompleted, finalTime, userdata, hallOfFame, personalHighscore } = state;
+    const { gameCompleted, finalTime, userdata, hallOfFame} = state;
     const [user, setUser] = useState(null);
     const [data,setData] = useState([])
     const personalHighScore = (user && data[0]) ? data[0]['data']['times'].sort()[0] : null
@@ -33,23 +33,32 @@ const Highscore = () => {
     }
 
     useEffect(() => {
-        if(!user) {return}
+        if(!user) return
                const unsub =  onSnapshot(query(colRef, where("id", "==", user.uid)),(snapshot) => {
                       setData(snapshot.docs.map(doc => ({
                           id: doc.id,
                           data: doc.data()
                       })))
                 })
-      
       },[user])
+
+      useEffect(async() => {
+          console.log(sessionStorage.getItem('finaltime'))
+          if(typeof window !== 'undefined' && sessionStorage.getItem('finaltime')) {
+              const result = sessionStorage.getItem('finaltime')
+              await FirebaseFirestoreService.updateResults(result,userdata[0])
+              //if(userdata) sessionStorage.removeItem('finaltime')
+          }
+      },[user,userdata])
 
     const overallHighscore = hallOfFame ? getOverallHighscore() : ""
 
     
     useEffect(() => {
         if(user && gameCompleted) {
-            console.log(userdata[0])
             FirebaseFirestoreService.updateResults(finalTime,userdata[0])
+        } else if(!user && gameCompleted) {
+            if(typeof window !== 'undefined') sessionStorage.setItem("finaltime",finalTime)
         }
     },[finalTime])
 
